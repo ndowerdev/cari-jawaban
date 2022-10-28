@@ -1,12 +1,13 @@
 <?php
 
-require "src/Brainly.php";
+require "vendor/autoload.php";
 
 use Brainly\Brainly;
 
-$query = "20296626";
+$query = "25586876";
 $st = new Brainly($query);
-echo $result = $st->execFindTugas($query);
+$result = $st->execFindTugas($query);
+print_r($result);
 
 // if (count($result) === 0) {
 //     print "Not found!\n";

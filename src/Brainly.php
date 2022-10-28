@@ -2,6 +2,8 @@
 
 namespace Brainly;
 
+use DiDom\Document;
+
 use Exception;
 
 if (!defined("CACHE_EXPIRED")) {
@@ -276,7 +278,8 @@ final class Brainly
         }
 
         // self::parseFindTugasById($out);
-        // // echo $out;
+
+        // die;
         if ($this->cachedData = self::parseFindTugasById($out)) {
             $this->writeCache();
         }
@@ -294,9 +297,17 @@ final class Brainly
 
     private static function parseFindTugasById($html)
     {
+
         $json =  self::get_string_between($html, 'window.jsData.question = ', "\n");
-        $array =  json_encode(json_decode($json));
-        return $array;
+        $jsQuestion =  json_decode($json);
+        $realAnswer = new Document($html);
+        $answer = $realAnswer->find('div.js-question-answers');
+        $finalAnswer = json_decode($answer[0]->{'data-content'});
+        $jsQuestion->possible_answer = $finalAnswer;
+
+        // $answer = $realAnswer->find('div[data-testid="answer_box_content"]');
+        // echo count($answer);
+        return $jsQuestion;
     }
 
     /**
