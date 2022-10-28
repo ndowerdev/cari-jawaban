@@ -23,6 +23,16 @@ if (count($result) === 0) {
 }
 ```
 
+## contoh penggunaan pencarian tugas by id
+```php
+$query = "20296626";
+$st = new Brainly($query);
+$result = $st->execFindTugas($query);
+
+print_r($result);
+
+```
+
 ## License
 This package is licensed under the MIT license.
 
