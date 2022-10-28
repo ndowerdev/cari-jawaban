@@ -1,12 +1,12 @@
 {
-    "name": "ammarfaizi2/brainly",
-    "description": "Brainly",
+    "name": "ndowerdev/cari-jawaban",
+    "description": "cari jawaban di brainly",
     "type": "library",
     "license": "MIT",
     "authors": [
         {
-            "name": "Ammar Faizi",
-            "email": "ammarfaizi2@gmail.com"
+            "name": "Rendrian",
+            "email": "hi@rendrian.dev"
         }
     ],
     "minimum-stability": "stable",
